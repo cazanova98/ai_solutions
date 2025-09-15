@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: Serverless cheque fraud detection API
+
+Resources:
+  ChequeFraudDetectionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.11
+      CodeUri: src
+      MemorySize: 2048
+      Timeout: 60
+      Environment:
+        Variables:
+          MODEL_BUCKET: your-model-bucket
+          RAG_DB_KEY: your-rag-db-key
+          RAG_DB_BUCKET: your-rag-db-bucket
+          SAGE_ENDPOINT_NAME: your-sagemaker-endpoint
+          FRAUD_DETECTION_ENDPOINT: your-fraud-detection-endpoint
+          SIGNATURE_EXTRACTION_ENDPOINT: your-signature-extraction-endpoint
+          IMAGE_ENHANCEMENT_ENDPOINT: your-image-enhancement-endpoint
+          S3_OUTPUT_BUCKET: your-s3-output-bucket
+      Role: arn:aws:iam::123456789012:role/YourLambdaExecution
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - S3ReadPolicy:
+            BucketName: your-model-bucket
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /predict
+            Method: post
+
+Outputs:
+  ApiUrl:
+    Description: "API Gateway endpoint URL for Check Fraud Detection"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/predict"
