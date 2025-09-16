@@ -47,6 +47,11 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Evaluation Metrics: F1-Score, Recall, Precision, Confusion Matrix
 
+### RAG
+
+- Signature databases used to compare against signatures in checks to obtain signature compatibility %
+- Bank ID databases used to compare MICR bank id against the bank name to check for possible missmatch.
+  
 ### Data Pipeline
 
 - Preprocessing: OCR and image enhancement
@@ -65,7 +70,12 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Scalable to handle thousands of cheques per day
 
+- Check CloudWatch for logs and SageMaker endpoint for predictions
 
-Check CloudWatch for logs and SageMaker endpoint for predictions
+- Human reviewers validate low-confidence predictions
+- 
+### Future Improvements
 
-Human reviewers validate low-confidence predictions
+- Collaborate with business stakeholders to refine and optimize feature engineering for improved model performance.
+  
+
