@@ -1,9 +1,9 @@
-#Cheque Fraud Detection AI Pipeline
-##Overview
+# Cheque Fraud Detection AI Pipeline
+## Overview
 
 This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud. The system leverages AWS services, deep learning models, and serverless architecture to automate cheque verification, minimize manual review, and improve fraud detection accuracy.
 
-###Features
+### Features
 
 - OCR Text Extraction: Extract raw text from cheques using AWS Textract.
 
@@ -21,7 +21,7 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Monitoring & Logging: CloudWatch logs all processing steps and model outputs.
 
-###Pipeline Architecture
+### Pipeline Architecture
 
 - Cheque Upload → triggers Lambda orchestration
 
@@ -39,7 +39,7 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Logs & Monitoring → CloudWatch stores all logs and metrics
 
-###AI/ML Model
+### AI/ML Model
 
 - Models used: Llama 3 3B 8-bit (custom fine-tuned), Claude V2
 
@@ -47,7 +47,7 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Evaluation Metrics: F1-Score, Recall, Precision, Confusion Matrix
 
-###Data Pipeline
+### Data Pipeline
 
 - Preprocessing: OCR and image enhancement
 
@@ -57,7 +57,7 @@ This repository contains an end-to-end AI/ML pipeline for detecting cheque fraud
 
 - Continuous training: Monthly updates using feedback from human reviewers
 
-###Deployment
+### Deployment
 
 - Fully serverless architecture using AWS Lambda
 
